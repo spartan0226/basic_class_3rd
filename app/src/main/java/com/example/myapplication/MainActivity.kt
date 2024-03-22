@@ -64,10 +64,10 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.spartaTextView)
         val randomTextView = findViewById<TextView>(R.id.textViewRandom)
 
-        if(textView.text.toString() == randomTextView.text.toString()) {
+        if(textView.text == randomTextView.text) {
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
         }
-        if(textView.text.toString() != randomTextView.text.toString()){
+        if(textView != randomTextView){
             Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show()
         }
     }
