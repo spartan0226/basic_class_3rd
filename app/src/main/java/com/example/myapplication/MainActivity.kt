@@ -48,11 +48,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setJobAndLaunch() {
-        val textView = findViewById<TextView>(R.i`d.spartaTextView)
+        val textView = findViewById<TextView>(R.id.spartaTextView)
 
         job = lifecycleScope.launch {
             for (i in 1..100) {
-                if (isActive) {`
+                if (isActive) {
                     textView.text = i.toString()
                     delay(500)
                 }
