@@ -66,8 +66,7 @@ class MainActivity : AppCompatActivity() {
 
         if(textView.text == randomTextView.text) {
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
-        }
-        if(textView != randomTextView){
+        } else {
             Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show()
         }
     }
