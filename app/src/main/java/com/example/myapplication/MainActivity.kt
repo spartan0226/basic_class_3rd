@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         val randomTextView = findViewById<TextView>(R.id.textViewRandom)
         val randomValue = (1..100).random()
 
-        randomTextView.setText(randomValue.toString())
+        randomTextView.text = randomValue.toString()
     }
 
     private fun setJobAndLaunch() {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.spartaTextView)
         val randomTextView = findViewById<TextView>(R.id.textViewRandom)
 
-        if(textView.text == randomTextView.text) {
+        if(textView.text.toString() == randomTextView.text.toString()) {
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "Incorrect!", Toast.LENGTH_SHORT).show()
