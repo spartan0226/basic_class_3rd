@@ -80,9 +80,9 @@ class MainActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         Log.i(TAG, "onRestoreInstanceState")
         counter = savedInstanceState.getInt("counter")
-            if (counter > 100) {
-                counter = 100
-            }
+        if (counter > 100) {
+            counter = 100
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
