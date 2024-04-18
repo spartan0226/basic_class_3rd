@@ -37,18 +37,9 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState != null) {
             randomValue = savedInstanceState.getInt("randomValue")
-            counter = savedInstanceState.getInt("counter")
-            if (counter > 100) {
-                counter = 100
-            }
-            binding.spartaTextView.text = counter.toString()
-
             isClicked = savedInstanceState.getBoolean("isClicked")
-            if (isClicked) {
-                binding.spartaTextView.text = counter.toString()
             }
         }
-
         setupButton()
         setRandomValueBetweenOneToHundred()
     }
@@ -61,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.i(TAG, "onResume")
+        setJobAndLaunch()
     }
 
     override fun onPause() {
@@ -77,7 +69,6 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.i(TAG, "onStart")
-        setJobAndLaunch()
     }
 
     override fun onDestroy() {
@@ -88,6 +79,10 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         Log.i(TAG, "onRestoreInstanceState")
+        counter = savedInstanceState.getInt("counter")
+            if (counter > 100) {
+                counter = 100
+            }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -113,8 +108,8 @@ class MainActivity : AppCompatActivity() {
     private fun setJobAndLaunch() {
         job?.cancel()
         job = lifecycleScope.launch {
-            if (isActive) {
-                while (counter <= 100) {
+            while (counter <= 100) {
+                if (isActive) {
                     binding.spartaTextView.text = counter.toString()
                     if (isClicked) {
                         break
